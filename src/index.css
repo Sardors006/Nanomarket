@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+@layer base {
+  a[href],
+  button:not(:disabled),
+  input[type='submit']:not(:disabled),
+  input[type='button']:not(:disabled),
+  input[type='reset']:not(:disabled),
+  input[type='checkbox']:not(:disabled),
+  input[type='radio']:not(:disabled),
+  label[for],
+  select:not(:disabled),
+  summary {
+    cursor: pointer;
+  }
+
+  button:disabled,
+  input:disabled,
+  select:disabled,
+  textarea:disabled {
+    cursor: not-allowed;
+  }
+
+  input[type='search'],
+  input[type='text'],
+  input[type='email'],
+  input[type='tel'],
+  input[type='number'],
+  input[type='password'],
+  textarea {
+    cursor: text;
+  }
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'DM Sans', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container{
+    width: 100vw;
+    height: 100vh;
+    background: black;
+}
+
+.container .box{
+    position: absolute;
+    width: 10rem;
+    height: 10rem;
+    top: 48%;
+    left: 48%;
+    margin: -3.1rem 0 0 -3.1rem;
+    border-radius: 50%;
+    animation: rotate 2s infinite linear;
+}
+
+.container .box:before{
+    content: "";
+    position: absolute;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border-radius: 50%;
+    animation: rotate 2s infinite linear;
+}
+
+
+.container .box:after{
+    position: absolute;
+    content: "";
+    top: 12px;
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    border-top: solid 3px yellow;
+    border-radius: 50%;
+    animation: rotate 2s infinite linear;
+}
+
+@keyframes rotate {
+    0%{
+        transform: rotate(0deg);
+    }
+
+    100%{
+        transform: rotate(360deg);
+    }
+}
