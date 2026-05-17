@@ -8,7 +8,7 @@ import Cart from './Pages/Cart'
 import Catalog from './Pages/Catalog'
 import Checkout from './Pages/Checkout'
 import Home from './Pages/Home'
-import ProductDetail from './pages/ProductDetail'
+import ProductDetail from './Pages/ProductDetail'
 
 function LoadingScreen() {
   return (
