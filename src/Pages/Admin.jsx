@@ -14,7 +14,7 @@ const emptyForm = {
 }
 
 function checkAdminPassword(value) {
-  return value === '1316'
+  return value === '1387'
 }
 
 export default function Admin() {
