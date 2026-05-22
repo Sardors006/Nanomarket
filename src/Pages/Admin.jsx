@@ -122,7 +122,7 @@ export default function Admin() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   className="mt-2 w-full rounded-xl border border-white/10 bg-zinc-900/50 px-4 py-3.5 text-white placeholder:text-zinc-500 outline-none ring-amber-500/0 transition focus:border-amber-500/50 focus:ring-4 focus:ring-amber-500/20"
-                  placeholder="••••"
+                  placeholder="Parol:"
                   autoComplete="current-password"
                 />
                 {authError && (
@@ -157,7 +157,7 @@ export default function Admin() {
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-4">
             <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-zinc-900 to-zinc-700 text-lg font-black text-amber-400 shadow-md">
-              N
+              <img src="./src/assets/logo-removebg-preview.png" alt="" />
             </div>
             <div>
               <p className="text-xs font-bold uppercase tracking-widest text-amber-600">NanoMarket</p>

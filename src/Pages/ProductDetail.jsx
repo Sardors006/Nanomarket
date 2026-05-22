@@ -107,7 +107,7 @@ export default function ProductDetail() {
               <div>
                 <p className="text-sm font-medium text-zinc-500">Narxi</p>
                 <p className="mt-1 text-4xl font-black text-amber-600 md:text-5xl">{formatSum(product.price)}</p>
-                <p className="mt-1 text-sm text-zinc-500">QQS kiritilgan holda ko‘rsatiladi (demo)</p>
+                <p className="mt-1 text-sm text-zinc-500">QQS kiritilgan holda ko‘rsatiladi</p>
               </div>
             </div>
 
