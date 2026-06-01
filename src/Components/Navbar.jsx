@@ -1,10 +1,12 @@
 import { useState } from 'react'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
 import logo from '../assets/logo.png'
+import { useAuth } from '../hooks/useAuth'
 import { useStore } from '../hooks/useStore'
 
 export default function Navbar() {
   const { cartCount } = useStore()
+  const { user, isAuthenticated, signOut } = useAuth()
   const navigate = useNavigate()
   const [q, setQ] = useState('')
   const [menuOpen, setMenuOpen] = useState(false)
@@ -68,6 +70,9 @@ export default function Navbar() {
             <NavLink to="/admin" className={navClass}>
               Admin
             </NavLink>
+            <NavLink to="/auth" className={navClass}>
+              {isAuthenticated ? user.name.split(' ')[0] : 'Kirish'}
+            </NavLink>
           </nav>
 
           <Link
@@ -126,6 +131,21 @@ export default function Navbar() {
             <NavLink to="/admin" className={navClass} onClick={() => setMenuOpen(false)}>
               Admin
             </NavLink>
+            <NavLink to="/auth" className={navClass} onClick={() => setMenuOpen(false)}>
+              {isAuthenticated ? user.name.split(' ')[0] : 'Kirish'}
+            </NavLink>
+            {isAuthenticated && (
+              <button
+                type="button"
+                className="text-left text-sm font-semibold text-zinc-700 hover:text-amber-600"
+                onClick={() => {
+                  signOut()
+                  setMenuOpen(false)
+                }}
+              >
+                Chiqish
+              </button>
+            )}
           </nav>
         </div>
       )}

@@ -2,7 +2,9 @@ import { useEffect, useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import './index.css'
 import Layout from './Components/Layout'
+import { AuthProvider } from './context/AuthProvider'
 import { StoreProvider } from './context/StoreProvider'
+import Auth from './Pages/Auth'
 import Admin from './Pages/Admin'
 import Cart from './Pages/Cart'
 import Catalog from './Pages/Catalog'
@@ -38,6 +40,7 @@ function AppRoutes() {
         <Route path="/product/:id" element={<ProductDetail />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/checkout" element={<Checkout />} />
+        <Route path="/auth" element={<Auth />} />
       </Route>
       <Route path="/admin" element={<Admin />} />
     </Routes>
@@ -47,7 +50,9 @@ function AppRoutes() {
 export default function App() {
   return (
     <StoreProvider>
-      <AppRoutes />
+      <AuthProvider>
+        <AppRoutes />
+      </AuthProvider>
     </StoreProvider>
   )
 }
