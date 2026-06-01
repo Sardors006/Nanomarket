@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useStore } from '../hooks/useStore'
 import { formatSum } from '../lib/format'
+import logo from '../assets/logo-removebg-preview.png'
 
 const ADMIN_KEY = 'nanomarket_admin_ok'
 
@@ -134,7 +135,7 @@ export default function Admin() {
               </div>
               <button
                 type="submit"
-                className="w-full rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 py-3.5 text-sm font-bold text-zinc-950 shadow-lg shadow-amber-500/25 transition hover:from-amber-400 hover:to-orange-400"
+                className="w-full rounded-xl bg-gradient-to-l from-amber-500 to-orange-500 py-3.5 text-sm font-bold text-zinc-950 shadow-lg shadow-amber-500/25 transition hover:from-amber-400 hover:to-orange-400"
               >
                 Kirish
               </button>
@@ -157,7 +158,7 @@ export default function Admin() {
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-4">
             <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-zinc-900 to-zinc-700 text-lg font-black text-amber-400 shadow-md">
-              <img src="./src/assets/logo-removebg-preview.png" alt="" />
+              <img src={logo} alt="" />
             </div>
             <div>
               <p className="text-xs font-bold uppercase tracking-widest text-amber-600">NanoMarket</p>

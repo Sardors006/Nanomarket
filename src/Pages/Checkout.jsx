@@ -1,5 +1,8 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import DeliveryAddressPicker, {
+  isDeliveryAddressValid,
+} from '../Components/DeliveryAddressPicker'
 import { useStore } from '../hooks/useStore'
 import { formatSum } from '../lib/format'
 
@@ -8,12 +11,12 @@ export default function Checkout() {
   const navigate = useNavigate()
   const [name, setName] = useState('')
   const [phone, setPhone] = useState('')
-  const [address, setAddress] = useState('')
+  const [delivery, setDelivery] = useState(null)
   const [done, setDone] = useState(false)
 
   const submit = (e) => {
     e.preventDefault()
-    if (!name.trim() || !phone.trim() || !address.trim()) return
+    if (!name.trim() || !phone.trim() || !isDeliveryAddressValid(delivery)) return
     clearCart()
     setDone(true)
     setTimeout(() => navigate('/'), 2200)
@@ -83,20 +86,10 @@ export default function Checkout() {
                 placeholder="+998 __ ___ __ __"
               />
             </div>
-            <div>
-              <label className="block text-sm font-medium text-zinc-700" htmlFor="co-addr">
-                Manzil
-              </label>
-              <textarea
-                id="co-addr"
-                required
-                rows={3}
-                value={address}
-                onChange={(e) => setAddress(e.target.value)}
-                className="mt-2 w-full rounded-xl border border-zinc-200 px-4 py-3 outline-none ring-amber-500/30 focus:ring-4"
-                placeholder="Shahar, ko‘cha, uy"
-              />
-            </div>
+            <fieldset className="space-y-1">
+              <legend className="text-sm font-medium text-zinc-700">Manzil</legend>
+              <DeliveryAddressPicker value={delivery} onChange={setDelivery} />
+            </fieldset>
             <button
               type="submit"
               className="w-full rounded-2xl bg-zinc-900 py-3.5 font-semibold text-white transition hover:bg-amber-500 lg:hidden"
